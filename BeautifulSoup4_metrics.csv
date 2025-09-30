@@ -1,0 +1,23 @@
+Module/File,Lines of Code,Cyclomatic Complexity (avg),Maintainability Index,Pylint Score,PEP8 Violations
+setup.py,29,0,0,0.0,0
+dammit.py,829,3.85,0,7.39,0
+diagnose.py,204,0,0,N/A,0
+element.py,1611,0,0,N/A,0
+testing.py,592,3.72,0,0.0,0
+__init__.py,406,3.17,0,N/A,0
+_html5lib.py,285,3.49,0,3.16,0
+_htmlparser.py,258,0,0,N/A,0
+_lxml.py,233,0,0,N/A,0
+__init__.py,321,3.17,0,6.34,0
+test_builder_registry.py,141,3.47,0,6.92,0
+test_docs.py,36,0,0,0.0,0
+test_html5lib.py,85,0,0,N/A,0
+test_htmlparser.py,19,3.0,0,8.89,0
+test_lxml.py,91,0,0,N/A,0
+test_soup.py,434,0,0,N/A,0
+test_tree.py,1829,3.59,0,7.13,0
+__init__.py,1,3.17,0,N/A,0
+conf.py,256,0,0,0.0,0
+demonstrate_parser_differences.py,95,0,0,N/A,0
+
+SUMMARY,7755,3.4,0,3.98,0
