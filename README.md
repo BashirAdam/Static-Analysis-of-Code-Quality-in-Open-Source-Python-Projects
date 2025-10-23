@@ -17,7 +17,6 @@ The goal is to provide empirical insights into maintainability, complexity, codi
 - **[Radon](https://radon.readthedocs.io/)** → Lines of Code (LOC), Cyclomatic Complexity (CC), Maintainability Index (MI)  
 - **[Pylint](https://pylint.org/)** → Code quality score, code smells  
 - **[Flake8](https://flake8.pycqa.org/)** → PEP8 style violations  
-- **[Bandit](https://bandit.readthedocs.io/)** → Security issue detection  
 
 ---
 
@@ -39,10 +38,20 @@ The goal is to provide empirical insights into maintainability, complexity, codi
 
 ---
 
-## 🛠 Installation
-Clone the repository and install dependencies:
+## Quick Start
+1. Clone this repository
+2. Run: `pip install -r requirements.txt`
+3. Run: `python run_analysis.py`
+4. All results will be generated in the `results/` folder
 
-```bash
-git clone https://github.com/YOUR_USERNAME/Static-Analysis-Python-CodeQuality.git
-cd Static-Analysis-Python-CodeQuality
-pip install pandas radon pylint flake8 bandit tqdm
+## File Structure
+- `analyze_metrics_per_module.py` - Core analysis script
+- `generate_plots.py` - Visualization generation
+- `run_analysis.py` - Complete automation script
+- `requirements.txt` - Python dependencies
+- `BeautifulSoup4_metrics.csv` - Raw metrics for BeautifulSoup4
+- `requests_metrics.csv` - Raw metrics for Requests
+- `figures/` - Generated visualization figures
+
+## Reproducing Results
+See the detailed instructions in [REPRODUCTION_GUIDE.md](REPRODUCTION_GUIDE.md)
