@@ -24,7 +24,6 @@ The goal is to provide empirical insights into maintainability, complexity, codi
 - **[Radon](https://radon.readthedocs.io/)** → Lines of Code (LOC), Cyclomatic Complexity (CC), Maintainability Index (MI)  
 - **[Pylint](https://pylint.org/)** → Code quality score, code smells  
 - **[Flake8](https://flake8.pycqa.org/)** → PEP8 style violations  
-- **[Bandit](https://bandit.readthedocs.io/)** → Security issue detection  
 
 ---
 
@@ -166,6 +165,15 @@ The analysis generates CSV files with the following columns:
 4. **PEP8 Violations**
    - Count of style guideline violations
    - Lower values indicate better code consistency
+
+---
+
+## 🚀 Quick Start
+
+1. Clone this repository
+2. Run: `pip install -r requirements.txt`
+3. Run: `python run_analysis.py`
+4. All results will be generated in the `results/` folder
 
 ---
 
