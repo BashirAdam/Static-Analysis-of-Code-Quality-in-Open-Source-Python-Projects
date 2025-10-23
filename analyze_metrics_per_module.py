@@ -39,7 +39,8 @@ def parse_radon_mi(output):
     mi_data = {}
     lines = output.splitlines()
     for line in lines:
-        match = re.match(r"(.+\.py) - MI: (\d+\.\d+)", line)
+        # Updated regex to match the actual radon MI output format: "file.py - A (40.08)"
+        match = re.match(r"(.+\.py)\s+-\s+[A-F]\s+\((\d+\.\d+)\)", line)
         if match:
             filename = os.path.basename(match.group(1).strip())
             mi = float(match.group(2))
@@ -51,10 +52,23 @@ def parse_flake8(output):
     flake_data = {}
     lines = output.splitlines()
     for line in lines:
-        parts = line.split(":")
-        if len(parts) > 1:
-            filename = os.path.basename(parts[0])
-            flake_data[filename] = flake_data.get(filename, 0) + 1
+        # Match lines that contain file paths and violation codes
+        # Format: "C:\path\to\file.py:line:col: code message"
+        if ".py:" in line:
+            # Find the last occurrence of .py: to handle Windows paths with colons
+            py_index = line.rfind(".py:")
+            if py_index != -1:
+                # Extract everything after .py: and split by colon
+                after_py = line[py_index + 4:]  # Skip ".py:"
+                parts = after_py.split(":", 2)  # Split into max 3 parts: line, col, rest
+                if len(parts) >= 2:  # Should have line:col:code format
+                    # Extract the violation code from the rest
+                    rest = parts[2] if len(parts) > 2 else ""
+                    violation_code = rest.strip().split()[0] if rest.strip().split() else ""
+                    if violation_code and (violation_code.startswith(('E', 'W', 'F', 'C', 'N', 'D', 'B'))):
+                        # Extract filename from the beginning of the line
+                        filename = os.path.basename(line[:py_index + 3])  # Don't include the ':'
+                        flake_data[filename] = flake_data.get(filename, 0) + 1
     return flake_data
 
 # Run Pylint per file (global score per module)
@@ -120,6 +134,7 @@ def analyze_project(project_path):
             mi = mi_data.get(filename, 0)
             pylint_score = get_pylint_score(file_path)
             pep8_violations = flake_data.get(filename, 0)
+            
 
             # Accumulate for summary
             total_loc += loc
