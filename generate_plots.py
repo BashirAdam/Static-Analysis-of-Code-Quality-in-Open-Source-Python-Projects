@@ -14,8 +14,11 @@ req_data = pd.read_csv(req_file)
 
 # --- Function to plot Bar Chart of Avg CC per Module ---
 def plot_avg_cc(data, project_name):
+    # Filter out SUMMARY rows
+    filtered_data = data[data['Module/File'] != 'SUMMARY']
+    
     plt.figure(figsize=(12,6))
-    plt.bar(data['Module/File'], data['Cyclomatic Complexity (avg)'], color='skyblue')
+    plt.bar(filtered_data['Module/File'], filtered_data['Cyclomatic Complexity (avg)'], color='skyblue')
     plt.xticks(rotation=90)
     plt.ylabel("Average Cyclomatic Complexity")
     plt.title(f"{project_name}: Cyclomatic Complexity per Module")
