@@ -19,25 +19,25 @@ from pathlib import Path
 
 def run_command(command, description):
     """Run a shell command and handle errors."""
-    print(f"\n🔄 {description}...")
+    print(f"\n {description}...")
     try:
         result = subprocess.run(command, shell=True, check=True, capture_output=True, text=True)
-        print(f"✅ {description} completed successfully")
+        print(f" {description} completed successfully")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"❌ Error in {description}:")
+        print(f" Error in {description}:")
         print(f"Command: {command}")
         print(f"Error: {e.stderr}")
         return False
 
 def main():
     """Main execution function."""
-    print("🚀 Starting Complete Analysis for Static Analysis of Code Quality")
+    print(" Starting Complete Analysis for Static Analysis of Code Quality")
     print("=" * 70)
     
     # Check if we're in the right directory
     if not os.path.exists("analyze_metrics_per_module.py"):
-        print("❌ Error: Please run this script from the project root directory")
+        print(" Error: Please run this script from the project root directory")
         print("   Expected files: analyze_metrics_per_module.py, generate_plots.py")
         sys.exit(1)
     
@@ -48,9 +48,9 @@ def main():
             "Cloning BeautifulSoup4 repository"
         )
         if not success:
-            print("❌ Failed to clone BeautifulSoup4. Continuing with existing data...")
+            print(" Failed to clone BeautifulSoup4. Continuing with existing data...")
     else:
-        print("✅ BeautifulSoup4 directory already exists")
+        print(" BeautifulSoup4 directory already exists")
     
     # Step 2: Clone requests
     if not os.path.exists("requests"):
@@ -59,12 +59,12 @@ def main():
             "Cloning requests repository"
         )
         if not success:
-            print("❌ Failed to clone requests. Continuing with existing data...")
+            print(" Failed to clone requests. Continuing with existing data...")
     else:
-        print("✅ requests directory already exists")
+        print(" requests directory already exists")
     
     # Step 3: Update project paths in analysis script
-    print("\n🔄 Updating project paths in analysis script...")
+    print("\n Updating project paths in analysis script...")
     try:
         with open("analyze_metrics_per_module.py", "r") as f:
             content = f.read()
@@ -79,9 +79,9 @@ def main():
         with open("analyze_metrics_per_module.py", "w") as f:
             f.write(updated_content)
         
-        print("✅ Project paths updated successfully")
+        print(" Project paths updated successfully")
     except Exception as e:
-        print(f"❌ Error updating project paths: {e}")
+        print(f" Error updating project paths: {e}")
         print("   You may need to manually update the paths in analyze_metrics_per_module.py")
     
     # Step 4: Run the metric analysis
@@ -90,7 +90,7 @@ def main():
         "Running static analysis and generating metrics"
     )
     if not success:
-        print("❌ Analysis failed. Check the error messages above.")
+        print(" Analysis failed. Check the error messages above.")
         sys.exit(1)
     
     # Step 5: Generate visualizations
@@ -99,14 +99,14 @@ def main():
         "Generating visualization plots"
     )
     if not success:
-        print("❌ Visualization generation failed. Check the error messages above.")
+        print(" Visualization generation failed. Check the error messages above.")
         sys.exit(1)
     
     # Step 6: Display summary
     print("\n" + "=" * 70)
-    print("🎉 ANALYSIS COMPLETE!")
+    print(" ANALYSIS COMPLETE!")
     print("=" * 70)
-    print("\n📊 Generated Files:")
+    print("\n Generated Files:")
     
     # Check for generated files
     files_to_check = [
@@ -119,13 +119,13 @@ def main():
         if os.path.exists(file_path):
             if os.path.isdir(file_path):
                 file_count = len([f for f in os.listdir(file_path) if f.endswith(('.png', '.jpg', '.pdf'))])
-                print(f"  ✅ {file_path} ({file_count} plots)")
+                print(f"   {file_path} ({file_count} plots)")
             else:
-                print(f"  ✅ {file_path}")
+                print(f"   {file_path}")
         else:
-            print(f"  ❌ {file_path} (not found)")
+            print(f"   {file_path} (not found)")
     
-    print("\n📈 Quick Summary:")
+    print("\n Quick Summary:")
     try:
         import pandas as pd
         
@@ -148,7 +148,7 @@ def main():
     print("  - Review the CSV files for detailed metrics")
     print("  - See README.md for detailed interpretation of results")
     
-    print("\n✨ Analysis reproduction complete!")
+    print("\n Analysis reproduction complete!")
 
 if __name__ == "__main__":
     main()
