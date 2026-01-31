@@ -1,105 +1,139 @@
 # Static Analysis of Code Quality in Open-Source Python Projects
 
-This repository contains the code, data, and figures for reproducing the analysis in the paper:
+> **Status:** 📝 *Preprint / Under Review*  
+> This work is currently available as a **preprint** and is under peer review. Content, results, and structure may be refined prior to final publication.
 
-**Static Analysis of Code Quality in Open-Source Python Projects**  
-*Submitted to Journal of Undergraduate Research International (JURI), 2025*
+---
 
-## 📖 Overview
+This repository contains the code, data, and supplementary materials for the research paper:
 
-This project conducts a systematic static analysis of two popular open-source Python projects (**Requests** and **BeautifulSoup4**) to evaluate code quality metrics including cyclomatic complexity, maintainability, and PEP8 compliance.
+**"Static Analysis of Code Quality in Open-Source Python Projects"**  
+Preprint, 2025  
+DOI (preprint): https://doi.org/10.64589/juri/215034
 
-## 🔧 Tools Used
+---
 
-- **Radon** → Lines of Code (LOC), Cyclomatic Complexity (CC), Maintainability Index (MI)
-- **Pylint** → Code quality scoring and code smells detection
-- **Flake8** → PEP8 style violations
+## 📌 Project Overview
 
-## 📊 Project Structure
-```
-Static-Analysis-of-Code-Quality-in-Open-Source-Python-Projects/
-├── run_analysis.py # Main script to reproduce entire analysis
-├── analyze_metrics_per_module.py # Core analysis script
-├── generate_plots.py # Visualization script
-├── requirements.txt # Python dependencies
-├── BeautifulSoup4_metrics.csv # Analysis results for BeautifulSoup4
-├── requests_metrics.csv # Analysis results for Requests
-└── figures/ # Generated visualization plots
-```
+This project presents a **reproducible static analysis** of code quality in two widely used open-source Python libraries:
 
-## 🚀 Quick Start (Full Reproduction)
+- **Requests** – HTTP library for Python  
+- **BeautifulSoup4** – HTML and XML parsing library
 
-1. **Clone this repository**
-   ```bash
-   git clone https://github.com/BashirAdam/Static-Analysis-of-Code-Quality-in-Open-Source-Python-Projects.git
-   cd Static-Analysis-of-Code-Quality-in-Open-Source-Python-Projects
-   ```
+Using multiple static analysis tools, the study evaluates software quality at the **module level**, focusing on complexity, maintainability, and coding style. The goal is to identify refactoring candidates and demonstrate how automated static analysis can support long-term software sustainability.
 
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+---
 
-3. **Run the complete analysis**
-   ```bash
-   python run_analysis.py
-   ```
+## 🔍 Analysis Metrics
 
-   This single command will:
-   - Clone the target projects (Requests and BeautifulSoup4)
-   - Run all static analysis tools
-   - Generate all metrics CSV files
-   - Create all visualization figures
-   - Display summary statistics
+The following metrics are extracted and analyzed:
 
-## 🔍 Manual Execution
+- Lines of Code (LOC)
+- Cyclomatic Complexity (average per module)
+- Maintainability Index (MI)
+- Pylint Score
+- PEP8 Style Violations
 
-If you prefer to run steps individually:
+---
+
+## 🛠 Tools & Technologies
+
+- **Python**
+- **Radon** – Complexity and maintainability metrics
+- **Pylint** – Code quality scoring
+- **Flake8** – PEP8 style analysis
+- **Pandas / NumPy** – Data aggregation and analysis
+- **Matplotlib / Seaborn** – Data visualization
+- **Git & GitHub** – Version control and reproducibility
+
+All tools are used with default configurations to ensure reproducibility and alignment with common industry practices.
+
+---
+
+## ⚙️ Methodology
+
+1. Clone official GitHub repositories of Requests and BeautifulSoup4
+2. Run static analysis tools on all Python modules
+3. Automatically parse and extract metrics using Python scripts
+4. Aggregate results into structured CSV files
+5. Perform module-level analysis and visualization
+6. Identify high-risk components and refactoring candidates
+
+The entire workflow is automated and fully reproducible.
+
+---
+
+## 📊 Key Findings (Preliminary)
+
+- Both projects show good overall maintainability but contain **specific high-risk modules** with elevated complexity and style violations.
+- Requests demonstrates more consistent code quality across modules.
+- A statistically significant **negative correlation** exists between cyclomatic complexity and maintainability.
+- Static analysis tools are effective for identifying technical debt and guiding refactoring decisions.
+
+> ⚠️ *Note:* These findings are based on the current preprint version and may be refined during peer review.
+
+---
+
+## ▶️ How to Reproduce the Analysis
 
 ```bash
-# Run the metric analysis
-python analyze_metrics_per_module.py
+# Clone this repository
+git clone https://github.com/BashirAdam/Static-Analysis-of-Code-Quality-in-Open-Source-Python-Projects.git
+cd Static-Analysis-of-Code-Quality-in-Open-Source-Python-Projects
 
-# Generate visualizations
-python generate_plots.py
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the full analysis pipeline
+python run_analysis.py
 ```
 
-## 📈 Output Files
+This will regenerate all tables, figures, and aggregated results used in the preprint.
 
-- **BeautifulSoup4_metrics.csv** - Metrics for 19 Python modules
-- **requests_metrics.csv** - Metrics for 34 Python modules
-- **figures/** - 6 visualization plots showing complexity distributions and relationships
+---
 
-### CSV Columns:
-- **Module/File** - Name of the Python file
-- **Lines of Code** - Total lines in the file
-- **Cyclomatic Complexity (avg)** - Average complexity score
-- **Maintainability Index** - Code maintainability score (0-100)
-- **Pylint Score** - Code quality score (0-10)
-- **PEP8 Violations** - Number of style guideline violations
+## 📁 Repository Structure
 
-## 📊 Key Findings (Summary)
+```text
+├── data/              # Raw and processed CSV files
+├── scripts/           # Metric extraction and automation scripts
+├── figures/           # Generated plots and visualizations
+├── run_analysis.py    # Main reproduction script
+├── requirements.txt  # Python dependencies
+└── README.md
+```
 
-- **BeautifulSoup4**: 7,755 LOC, average CC: 3.40, total PEP8 violations: 656
-- **Requests**: 11,248 LOC, average CC: 2.87, total PEP8 violations: 533
-- **High-complexity modules**: dammit.py (BeautifulSoup4) and test_requests.py (Requests) identified as refactoring candidates
+---
 
-## 📚 Research Context
+## 🎯 Relevance
 
-This work contributes to software engineering by:
+This project is relevant for:
 
-- Providing empirical code quality assessment of widely-used Python libraries
-- Demonstrating a reproducible methodology for static analysis
-- Identifying specific modules that would benefit most from refactoring
-- Offering a template for similar code quality studies
+- **Data Analysts / Data Scientists** – metric analysis, aggregation, correlation studies
+- **Software Engineers** – code quality, maintainability, refactoring insights
+- **AI/ML Engineers** – reproducible pipelines and data-driven evaluation
+- **Researchers & Students** – empirical software engineering research
 
-## 🤝 Contact
+---
 
-- **Author**: Bashir Adam
-- **Institution**: Ostim Technical University
+## 📄 Citation
 
-## 🙏 Acknowledgments
+If you use or reference this work, please cite the **preprint**:
 
-- The open-source communities behind Requests and BeautifulSoup4
-- Developers of Radon, Pylint, and Flake8 static analysis tools
-- Journal of Undergraduate Research International for considering this work
+> Bashir Adam Ahmed Ali. *Static Analysis of Code Quality in Open-Source Python Projects*. Preprint, 2025. https://doi.org/10.64589/juri/215034
+
+---
+
+## 👤 Author
+
+**Bashir Adam Ahmed Ali**  
+BSc in Software Engineering, Ostim Technical University  
+GitHub: https://github.com/BashirAdam  
+ORCID: https://orcid.org/0009-0009-0267-2904
+
+---
+
+## 📜 License
+
+This repository is provided for **academic and educational purposes**. Please respect the licenses of the analyzed open-source projects (Requests and BeautifulSoup4).
+
