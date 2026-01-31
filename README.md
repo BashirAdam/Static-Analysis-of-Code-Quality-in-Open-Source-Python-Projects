@@ -13,7 +13,7 @@ DOI (preprint): https://doi.org/10.64589/juri/215034
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 This project presents a **reproducible static analysis** of code quality in two widely used open-source Python libraries:
 
@@ -24,7 +24,7 @@ Using multiple static analysis tools, the study evaluates software quality at th
 
 ---
 
-## 🔍 Analysis Metrics
+## Analysis Metrics
 
 The following metrics are extracted and analyzed:
 
@@ -50,7 +50,7 @@ All tools are used with default configurations to ensure reproducibility and ali
 
 ---
 
-## ⚙️ Methodology
+## Methodology
 
 1. Clone official GitHub repositories of Requests and BeautifulSoup4
 2. Run static analysis tools on all Python modules
@@ -63,7 +63,7 @@ The entire workflow is automated and fully reproducible.
 
 ---
 
-## 📊 Key Findings (Preliminary)
+## Key Findings (Preliminary)
 
 - Both projects show good overall maintainability but contain **specific high-risk modules** with elevated complexity and style violations.
 - Requests demonstrates more consistent code quality across modules.
@@ -74,7 +74,7 @@ The entire workflow is automated and fully reproducible.
 
 ---
 
-## ▶️ How to Reproduce the Analysis
+## How to Reproduce the Analysis
 
 ```bash
 # Clone this repository
@@ -92,7 +92,7 @@ This will regenerate all tables, figures, and aggregated results used in the pre
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 ├── data/              # Raw and processed CSV files
@@ -105,7 +105,7 @@ This will regenerate all tables, figures, and aggregated results used in the pre
 
 ---
 
-## 🎯 Relevance
+## Relevance
 
 This project is relevant for:
 
@@ -116,7 +116,7 @@ This project is relevant for:
 
 ---
 
-## 📄 Citation
+## Citation
 
 If you use or reference this work, please cite the **preprint**:
 
@@ -124,7 +124,7 @@ If you use or reference this work, please cite the **preprint**:
 
 ---
 
-## 👤 Author
+## Author
 
 **Bashir Adam Ahmed Ali**  
 BSc in Software Engineering, Ostim Technical University  
@@ -133,7 +133,7 @@ ORCID: https://orcid.org/0009-0009-0267-2904
 
 ---
 
-## 📜 License
+## License
 
 This repository is provided for **academic and educational purposes**. Please respect the licenses of the analyzed open-source projects (Requests and BeautifulSoup4).
 
