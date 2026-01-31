@@ -1,7 +1,7 @@
 # Static Analysis of Code Quality in Open-Source Python Projects
 
-> **Status:** 📝 *Preprint / Under Review*  
-> This work is currently available as a **preprint** and is under peer review. Content, results, and structure may be refined prior to final publication.
+> **Status:** ✅ *Published Peer-Reviewed Research*  
+> This work has been **peer-reviewed and published** in the *Journal of Undergraduate Research International (JURI)*.
 
 ---
 
