@@ -36,7 +36,7 @@ The following metrics are extracted and analyzed:
 
 ---
 
-## 🛠 Tools & Technologies
+## Tools & Technologies
 
 - **Python**
 - **Radon** – Complexity and maintainability metrics
